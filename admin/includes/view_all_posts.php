@@ -1,3 +1,4 @@
+<?php include "./includes/delete_modaL.php" ?>
 <?php
 if (isset($_POST['checkBoxesArray'])) {
     foreach ($_POST['checkBoxesArray'] as $checkBoxValue) { // السطر ده بيجيب ال id بتاع البوست
@@ -162,7 +163,8 @@ if (isset($_POST['checkBoxesArray'])) {
 
         echo "<td><a href='../post.php?p_id={$post_id}'>View Post</a></td>";
         echo "<td><a href='posts.php?source=edit_post&p_id={$post_id}'>Edit</a></td>";
-        echo "<td><a href='posts.php?delete={$post_id}'>Delete</a></td>";
+        echo "<td><a rel='{$post_id}'  class='delete_link' href='javascript:void(0)'>Delete</a></td>";
+        // echo "<td><a href='posts.php?delete={$post_id}'>Delete</a></td>";
         echo "<td>$post_views</td>";
         echo "</tr>";
 
@@ -190,3 +192,17 @@ if (isset($_GET['delete'])) {
 
 
 ?>
+<script>
+    $(document).ready(function () {
+        $(".delete_link").on('click', function () {
+            var id = $(this).attr("rel");
+            var delete_url = "posts.php?delete=" + id + " ";
+            $(".modal_delete_link").attr("href", delete_url);
+            $("#myModal").modal('show');
+
+        });
+        // alert("Hekko")
+    });
+
+
+</script>
