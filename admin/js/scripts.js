@@ -18,11 +18,11 @@ $(document).ready(function () {
   $(document).ready(function () {
     $("#selectAllBoxes_us").click(function (event) {
       if (this.checked) {
-        $(".checkBoxes").each(function () {
+        $(".checkBoxes_us").each(function () {
           this.checked = true;
         });
       } else {
-        $(".checkBoxes").each(function () {
+        $(".checkBoxes_us").each(function () {
           this.checked = false;
         });
       }

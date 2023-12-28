@@ -36,7 +36,7 @@
 
 
 				// get items from categories query.
-				$query_c = "SELECT * FROM `posts`    ";
+				$query_c = "SELECT * FROM `posts`  WHERE post_status = 'published'   ";
 				$find_count_query = mysqli_query($connection, $query_c);
 				$count = mysqli_num_rows($find_count_query);
 				$count = ceil($count / 2);
@@ -47,7 +47,7 @@
 				<h1 class="page-header">
 					Home
 					<small>Hi..</small>
-					<?php echo $count; ?>
+					<?php // echo $count; ?>
 
 				</h1>
 				<?php
