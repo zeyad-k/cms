@@ -1,6 +1,6 @@
+<?php include "./includes/afunctions.php"; ?>
 <?php include "./includes/dp.php"; ?>
 <?php include "includes/header.php"; ?>
-<?php include "includes/functions.php"; ?>
 
 <?php
 if (isset($_POST['submit'])) {
@@ -76,7 +76,7 @@ if (isset($_POST['submit'])) {
                                     placeholder="Enter Desired Username" autocomplete="on"
                                     value="<?php echo isset($username) ? $username : '' ?>">
                                 <p>
-                                    <?php echo isset($error['username']) ? $username : '' ?>
+                                    <?php echo isset($error['username']) ? $error['username'] : '' ?>
                                 </p>
 
                             </div>
@@ -86,7 +86,7 @@ if (isset($_POST['submit'])) {
                                     placeholder="somebody@example.com" autocomplete="on"
                                     value="<?php echo isset($email) ? $email : '' ?>">
                                 <p>
-                                    <?php echo isset($error['email']) ? $email : '' ?>
+                                    <?php echo isset($error['email']) ? $error['email'] : '' ?>
                                 </p>
 
 
