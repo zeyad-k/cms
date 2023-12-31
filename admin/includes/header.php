@@ -2,13 +2,11 @@
 <?php include("includes/functions.php"); ?>
 <?php ob_start(); ?>
 <?php session_start(); ?>
-<!-- <?php
-// if (isset($_SESSION['username'])) {
-//     $username = $_SESSION['username'];
-// } else {
-//     $username = "Guest";
-// }
-?> -->
+<?php
+
+
+
+?>
 
 
 <!DOCTYPE html>

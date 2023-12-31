@@ -1,4 +1,9 @@
 <?php
+if (!isAdmin($_SESSION['username'])) {
+
+	header("Location: index.php");
+
+}
 if (isset($_POST['checkBoxesArray_us'])) {
 	foreach ($_POST['checkBoxesArray_us'] as $checkBoxValue) { // السطر ده بيجيب ال id بتاع البوست
 		$bulk_options_us = $_POST['bulk_options_us'];
