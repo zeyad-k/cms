@@ -44,10 +44,13 @@ if (isset($_POST['submit'])) {
     }
     foreach ($error as $key => $value) {
         if (empty($value)) {
-            // register_user($username, $email, $password);
+            unset($error[$key]);
             // login_user($username, $password);
         }
     } //foreach
+    if (empty($error)) {
+        register_user($username, $email, $password);
+    }
 }
 
 ?>
@@ -96,6 +99,10 @@ if (isset($_POST['submit'])) {
                                 <label for="password" class="sr-only">Password</label>
                                 <input type="password" name="password" id="key" class="form-control"
                                     placeholder="Password">
+                                <p>
+                                    <?php echo isset($error['password']) ? $error['password'] : '' ?>
+                                </p>
+
                             </div>
 
                             <input type="submit" name="submit" id="btn-login" class="btn btn-custom btn-lg btn-block"

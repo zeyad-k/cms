@@ -86,41 +86,31 @@ function userEmailExist($user_email)
 }
 
 
+
+
+
 function register_user($username, $email, $password)
 {
 	global $connection;
-	$username = $_POST['username'];
-	$email = $_POST['email'];
-	$password = $_POST['password'];
 
-	if (usernameExist($username)) {
-		$message = 'user already exists';
-	}
-	if (userEmailExist($email)) {
-		$message = 'Email already exists';
-	}
-
-	if (!empty($username) && !empty($email) && !empty($password)) {
-
-		$username = mysqli_real_escape_string($connection, $username);
-		$email = mysqli_real_escape_string($connection, $email);
-		$password = mysqli_real_escape_string($connection, $password);
+	$username = mysqli_real_escape_string($connection, $username);
+	$email = mysqli_real_escape_string($connection, $email);
+	$password = mysqli_real_escape_string($connection, $password);
 
 
-		$password = password_hash($password, PASSWORD_BCRYPT, array('cost' => 12));
+	$password = password_hash($password, PASSWORD_BCRYPT, array('cost' => 12));
 
 
-		$query = "INSERT INTO users (username, user_email, user_password, user_role)
+	$query = "INSERT INTO users (username, user_email, user_password, user_role)
         VALUES ('{$username}', '{$email}', '{$password}', 'subscriber')";
-		$register_user_query = mysqli_query($connection, $query);
+	$register_user_query = mysqli_query($connection, $query);
 
-		confirmQuery($register_user_query);
-	} else {
-		$message = "Fields cannot be empty";
-	}
-
-
+	confirmQuery($register_user_query);
 }
+
+
+
+
 
 function login_user($username, $password)
 {

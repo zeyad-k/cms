@@ -44,6 +44,9 @@
                     <a class="active" href="admin">Admin</a>
                 </li>
                 <li>
+                    <a class="active" href="login.php">Login</a>
+                </li>
+                <li>
                     <a class="active" href="registration.php">Registration</a>
                 </li>
                 <li>
