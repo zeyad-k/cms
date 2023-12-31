@@ -1,6 +1,6 @@
-<?php include "includes/dp.php"; ?>
+<?php include "./includes/dp.php"; ?>
 <?php include "includes/header.php"; ?>
-<?php include "./admin/includes/functions.php"; ?>
+<?php include "includes/functions.php"; ?>
 
 <?php
 if (isset($_POST['submit'])) {
@@ -78,12 +78,18 @@ if (isset($_POST['submit'])) {
                                 <p>
                                     <?php echo isset($error['username']) ? $username : '' ?>
                                 </p>
+
                             </div>
                             <div class="form-group">
                                 <label for="email" class="sr-only">Email</label>
                                 <input type="email" name="email" id="email" class="form-control"
                                     placeholder="somebody@example.com" autocomplete="on"
                                     value="<?php echo isset($email) ? $email : '' ?>">
+                                <p>
+                                    <?php echo isset($error['email']) ? $email : '' ?>
+                                </p>
+
+
 
                             </div>
                             <div class="form-group">
