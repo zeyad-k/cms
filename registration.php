@@ -1,5 +1,7 @@
-<?php include "./includes/dp.php"; ?>
+<?php include "includes/dp.php"; ?>
 <?php include "includes/header.php"; ?>
+<?php include "./admin/includes/functions.php"; ?>
+
 <?php
 if (isset($_POST['submit'])) {
 
@@ -20,6 +22,7 @@ if (isset($_POST['submit'])) {
 
         $error['username'] = 'Username cannot be empty';
     }
+
     if (usernameExist($username)) {
 
         $error['username'] = 'Username already exist, pls Pic another one.';
@@ -39,7 +42,14 @@ if (isset($_POST['submit'])) {
 
         $error['password'] = 'password cannot be empty';
     }
+    foreach ($error as $key => $value) {
+        if (empty($value)) {
+            // register_user($username, $email, $password);
+            // login_user($username, $password);
+        }
+    } //foreach
 }
+
 ?>
 
 
@@ -59,17 +69,22 @@ if (isset($_POST['submit'])) {
                         <h1>Register</h1>
                         <form role="form" action="registration.php" method="post" id="login-form" autocomplete="off">
                             <h6 class="text-center">
-                                <?php echo $message; ?>
                             </h6>
                             <div class="form-group">
                                 <label for="username" class="sr-only">username</label>
                                 <input type="text" name="username" id="username" class="form-control"
-                                    placeholder="Enter Desired Username">
+                                    placeholder="Enter Desired Username" autocomplete="on"
+                                    value="<?php echo isset($username) ? $username : '' ?>">
+                                <p>
+                                    <?php echo isset($error['username']) ? $username : '' ?>
+                                </p>
                             </div>
                             <div class="form-group">
                                 <label for="email" class="sr-only">Email</label>
                                 <input type="email" name="email" id="email" class="form-control"
-                                    placeholder="somebody@example.com">
+                                    placeholder="somebody@example.com" autocomplete="on"
+                                    value="<?php echo isset($email) ? $email : '' ?>">
+
                             </div>
                             <div class="form-group">
                                 <label for="password" class="sr-only">Password</label>
