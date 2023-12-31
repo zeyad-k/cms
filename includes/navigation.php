@@ -41,13 +41,13 @@
                 ?>
 
                 <li>
-                    <a href="admin">Admin</a>
+                    <a class="active" href="admin">Admin</a>
                 </li>
                 <li>
-                    <a href="registration.php">Registration</a>
+                    <a class="active" href="registration.php">Registration</a>
                 </li>
                 <li>
-                    <a href="contact.php">Contact</a>
+                    <a class="active" href="contact.php">Contact</a>
                 </li>
 
                 <?php
