@@ -1,4 +1,5 @@
-<?php include "./includes/afunctions.php"; ?>
+<?php include "includes/navigation.php"; ?>
+
 <?php include "./includes/dp.php"; ?>
 <?php include "includes/header.php"; ?>
 
@@ -58,7 +59,6 @@ if (isset($_POST['submit'])) {
 
 <!-- Navigation -->
 
-<?php include "includes/navigation.php"; ?>
 
 
 <!-- Page Content -->

@@ -18,6 +18,8 @@
                 <?php
                 // link the database
                 include "dp.php";
+                include "./functions.php";
+
                 session_start();
 
 
@@ -39,13 +41,18 @@
                 }
 
                 ?>
-
-                <li>
-                    <a class="active" href="admin">Admin</a>
-                </li>
-                <li>
-                    <a class="active" href="login.php">Login</a>
-                </li>
+                <?php if (isLoggedIn()): ?>
+                    <li>
+                        <a class="active" href="admin">Admin</a>
+                    </li>
+                    <li>
+                        <a class="active" href="/cms/includes/Logout.php">Logout</a>
+                    </li>
+                <?php else: ?>
+                    <li>
+                        <a class="active" href="login.php">Login</a>
+                    </li>
+                <?php endif; ?>
                 <li>
                     <a class="active" href="registration.php">Registration</a>
                 </li>

@@ -1,11 +1,22 @@
-<?php  include "includes/db.php"; ?>
-<?php  include "includes/header.php"; ?>
+<?php include "./includes/dp.php"; ?>
+<?php include "includes/header.php"; ?>
+<?php include "includes/navigation.php"; ?>
 
 
+
+<?php
+checkIfUserIsLoggedInAndRedirect('/cms/admin');
+if (ifItIsMethod('post')) {
+	if (isset($_POST['username']) && isset($_POST['password'])) {
+		login_user($_POST['username'], $_POST['password']);
+	} else {
+		redirect('/cms/login.php');
+	}
+}
+?>
 
 <!-- Navigation -->
 
-<?php  include "includes/navigation.php"; ?>
 
 
 <!-- Page Content -->
@@ -29,22 +40,27 @@
 
 									<div class="form-group">
 										<div class="input-group">
-											<span class="input-group-addon"><i class="glyphicon glyphicon-user color-blue"></i></span>
+											<span class="input-group-addon"><i
+													class="glyphicon glyphicon-user color-blue"></i></span>
 
-											<input name="username" type="text" class="form-control" placeholder="Enter Username">
+											<input name="username" type="text" class="form-control"
+												placeholder="Enter Username">
 										</div>
 									</div>
 
 									<div class="form-group">
 										<div class="input-group">
-											<span class="input-group-addon"><i class="glyphicon glyphicon-lock color-blue"></i></span>
-											<input name="password" type="password" class="form-control" placeholder="Enter Password">
+											<span class="input-group-addon"><i
+													class="glyphicon glyphicon-lock color-blue"></i></span>
+											<input name="password" type="password" class="form-control"
+												placeholder="Enter Password">
 										</div>
 									</div>
 
 									<div class="form-group">
 
-										<input name="login" class="btn btn-lg btn-primary btn-block" value="Login" type="submit">
+										<input name="login" class="btn btn-lg btn-primary btn-block" value="Login"
+											type="submit">
 									</div>
 
 
@@ -61,6 +77,6 @@
 
 	<hr>
 
-	<?php include "includes/footer.php";?>
+	<?php include "includes/footer.php"; ?>
 
 </div> <!-- /.container -->

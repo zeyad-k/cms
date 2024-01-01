@@ -2,12 +2,86 @@
 include("../includes/dp.php");
 function redirect($location)
 {
-	return header("Location: " . $location);
+
+
+	header("Location:" . $location);
+	exit;
+
 }
+function ifItIsMethod($method = null)
+{
+
+	if ($_SERVER['REQUEST_METHOD'] == strtoupper($method)) {
+
+		return true;
+
+	}
+
+	return false;
+
+}
+
+function isLoggedIn()
+{
+
+	if (isset($_SESSION['user_role'])) {
+
+		return true;
+
+
+	}
+
+
+	return false;
+
+}
+
+function checkIfUserIsLoggedInAndRedirect($redirectLocation = null)
+{
+
+	if (isLoggedIn()) {
+
+		redirect($redirectLocation);
+
+	}
+
+}
+
+
 function escape($string)
 {
+
 	global $connection;
-	return mysqli_real_escape_string($connection, trim(strip_tags($string)));
+
+	return mysqli_real_escape_string($connection, trim($string));
+
+
+}
+function set_message($msg)
+{
+
+	if (!$msg) {
+
+		$_SESSION['message'] = $msg;
+
+	} else {
+
+		$msg = "";
+
+
+	}
+
+
+}
+function display_message()
+{
+
+	if (isset($_SESSION['message'])) {
+		echo $_SESSION['message'];
+		unset($_SESSION['message']);
+	}
+
+
 }
 function usersOnline()
 {
@@ -154,6 +228,10 @@ function login_user($username, $password)
 		header("location: ../index.php");
 	}
 }
+
+
+
+
 
 
 

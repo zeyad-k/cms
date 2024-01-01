@@ -1,8 +1,19 @@
 <!-- blog side bar search widgets Columns -->
+
+
+
+
+<?php
+if (ifItIsMethod('post')) {
+    if (isset($_POST['username']) && isset($_POST['password'])) {
+        login_user($_POST['username'], $_POST['password']);
+    } else {
+        redirect('index');
+    }
+}
+?>
+
 <div class="col-md-4">
-
-
-
 
 
 
@@ -36,7 +47,8 @@
         <?php else: ?>
             <h4>LOG-IN</h4>
             <!--  search form -->
-            <form action="includes/login.php" method="post">
+            <!-- <form action="includes/login.php" method="post"> -->
+            <form method="post">
                 <div class="form-group">
                     <input name="username" type="text" class="form-control" placeholder="Enter username">
                 </div>
