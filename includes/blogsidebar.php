@@ -1,23 +1,19 @@
 <!-- blog side bar search widgets Columns -->
 
-
-
-
 <?php
 if (ifItIsMethod('post')) {
-    if (isset($_POST['username']) && isset($_POST['password'])) {
-        login_user($_POST['username'], $_POST['password']);
-    } else {
-        redirect('index');
+    if (isset($_POST['login'])) {
+        if (isset($_POST['username']) && isset($_POST['password'])) {
+            login_user($_POST['username'], $_POST['password']);
+        } else {
+            redirect('index');
+        }
     }
+
 }
 ?>
 
 <div class="col-md-4">
-
-
-
-
 
     <!-- Blog Search Well -->
     <div class="well">
@@ -60,6 +56,9 @@ if (ifItIsMethod('post')) {
                             Login
                         </button>
                     </span>
+                </div>
+                <div class="form-group">
+                    <a href="forgot.php?forgot=<?php echo uniqid(true); ?>">Forgot Password</a>
                 </div>
             </form>
 

@@ -1,0 +1,13 @@
+{
+    "name": "zeyad/cms",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Zeyad Abdullatif Abdullwahab Korkor",
+            "email": "zayad30982025@f-eng.tanta.edu.eg"
+        }
+    ],
+    "require": {
+        "phpmailer/phpmailer": "^6.9"
+    }
+}
